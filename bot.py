@@ -1,8 +1,10 @@
 import os
 from dotenv import load_dotenv
 import slack
-from flask import Flask
+from flask import Flask,request,Response
 from slackeventsapi import SlackEventAdapter
+import sqlite3
+from database_interactions import upsert_user,get_message_count
 
 load_dotenv()
 
@@ -20,10 +22,22 @@ def message(payload):
     event = payload.get('event',{})
     channel_id = event.get('channel')
     user_id = event.get('user')
+    print(user_id)
     text = event.get('text')
     
     if BOT_ID != user_id:
+        upsert_user(user_id)   
         client.chat_postMessage(channel=channel_id,text=text)
+ 
+@app.route("/message-count",methods=['POST'])       
+def message_count():
+    data = request.form
+    
+    user_id = data.get("user_id")
+    channel_id = data.get("channel_id")
+    msg_count = get_message_count(user_id)
+    client.chat_postMessage(channel=channel_id,text=f"Message-Count: {msg_count}")
+    return Response(),200
 
 
     

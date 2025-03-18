@@ -1,3 +1,5 @@
 .venv/
 .env
 *.exe
+__pycache__/
+*.db

@@ -10,3 +10,8 @@ Handling Events:(API Events)
 1. Go to slack api and event description make it enable.
 2. Add url of server where you listen.
 3. I am using ngrok for this beacuse i have local app of flask.
+
+Slash Commands:
+
+1. Adding emojis or mark message as read is event.
+2. /me,/active these are commands.
