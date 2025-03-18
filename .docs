@@ -1,0 +1,6 @@
+Steps:
+
+Create account on slack and add workspace.
+Create slack app and go to auth and permissions and add scopes of app.
+copy auth token that is used for interaction.
+Add app to your workspace channel.
