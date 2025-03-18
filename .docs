@@ -4,3 +4,9 @@ Create account on slack and add workspace.
 Create slack app and go to auth and permissions and add scopes of app.
 copy auth token that is used for interaction.
 Add app to your workspace channel.
+
+Handling Events:(API Events)
+
+1. Go to slack api and event description make it enable.
+2. Add url of server where you listen.
+3. I am using ngrok for this beacuse i have local app of flask.
